@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+            {{ post.title }}
+    {% endblock title %}
+    {% block content %}
+
+    <style>
+        .blog_post{
+            padding: 30px;
+            text-align: justify;
+        } </style>
+
+    <div align="center">
+        <p>
+        <h1>{{ post.title }}</h1>
+                by
+        {{ post.user.username }}
+            <br> 
+        in {{ post.category }}
+            <br>
+        posted on
+        {{ post.date.strftime('%Y-%m-%d') }} 
+        at
+        {{ post.date.strftime('%H:%M') }}</p>
+    <div class="blog_post" >
+        {{ post.content }}
+    </div>
+</div>
+        {% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+            Categories
+    {% endblock title %}
+    {% block content %}
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Categories</h1>
+    {% for category in categories %}
+    <div class = "item-box">
+        <img src="static/alien.bmp" class = "image">
+        <a href="{{ url_for('views.category_posts', category_name=category) }}"><h3 class="title">{{ category }}</h3></a>
+    </div>
+    {% endfor %}
+    </div>
+        {% endblock %}

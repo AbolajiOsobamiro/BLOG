@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+            My Posts
+    {% endblock title %}
+
+    {% block content %}
+    <div class="container mt-5">
+    <h1 class="text-center mb-4">My Posts</h1>
+    {% if posts %}
+
+    {% for post in posts %}
+    <div>
+        <h3>{{ post.title }}</h3> 
+        {{ post.category }} <br>
+        {{ post.content[:200] }} ........ 
+        <a href="{{ url_for('views.blog_post', post_id=post.id) }}">Read More</a><br>
+        <a href="{{ url_for('views.edit_post', post_id=post.id) }}"><input type="submit" value="Edit Post" class = "btn btn-primary"/></a>
+        <a href="{{ url_for('views.delete_post', post_id=post.id) }}"><input type="submit" value="Delete Post" class = "btn btn-secondary"/></a>
+    </div>
+    <br> <br>
+    {% endfor %}
+    {% else %}
+    <h3 align="center">You haven't written any blog posts yet.</h3>
+    {% endif %}
+</div>
+    {% endblock content %}

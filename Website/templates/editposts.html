@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+            Edit Post
+    {% endblock title %}
+
+    {% block content %}
+
+    <h1 align="center">Edit Post</h1>
+
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <br>
+        <div class="container-lg">
+        <label for="blog-title">Title</label>
+        <input type="text" name="title" class="form-control" id="blog-title"  value="{{ post.title }}">
+        </div>
+        <br> <br>
+
+        <div class="container-lg">
+        <label for="blog-category">Category</label>
+        <input type="text" name="category"  class="form-control" id="blog-category"  value="{{ post.category }}">
+        </div>
+        <br> <br>
+
+        <div class="container-lg">
+        <label for="blog-body">Blog Content</label>
+        <textarea name="content" id="blog-body" class="form-control" cols="30" rows="10">{{ post.content }}</textarea>
+        </div>
+        <br> <br>
+        
+        <p align="center">
+        <button class = "btn btn-primary" name="Update Post">Update Post</button>
+        </p>
+    </form>
+
+    {% endblock content %}

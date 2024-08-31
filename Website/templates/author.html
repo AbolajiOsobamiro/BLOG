@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+            {{ author.username }}
+    {% endblock title %}
+    {% block content %}
+    
+    <div class="container-lg">
+        <h1 class="text-center mb-4">Posts by {{author.username }}</h1>
+
+    {% if posts %}
+    {% for post in posts %}
+    <div>
+       
+        <br>
+        <a href="{{ url_for('views.blog_post', post_id=post.id) }}">{{ post.title}}</a>
+            <br> 
+        {{ post.category }}
+            <br>
+        posted on
+        {{ post.date.strftime('%Y-%m-%d') }} 
+        at
+        {{ post.date.strftime('%H:%M') }}
+    </div>
+    {% endfor %}
+    {% else %}
+        <p>{{ author.username }} has not written any blog posts yet.</p>
+    {% endif %}
+    </div>
+        {% endblock %}

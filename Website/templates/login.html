@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+            Login
+            {% endblock title %}
+{% block content%}
+
+<form method="POST" action="">
+    <h2 align="center">Login</h2>
+    <div class="container-lg">
+        <label for="username">Username:</label>
+        <br> <br> 
+        <input type="text" name="username" id="username" class = "form-control" placeholder="Enter username"/>
+    </div> <br>
+    <div class="container-lg">
+        <label for="password">Password: </label>
+        <br> <br>
+        <input type="password" name="password" id="password" class = "form-control" placeholder="Enter password"/>
+    </div> <br>
+    <p align="center">
+    <input type="submit" value="Log in" class = "btn btn-primary"/> <br> <br>
+        If you do not have an account, consider signing up here. <br> <br>
+        <a href="/signup"><input type="button" value="Sign Up!" class = "btn btn-primary"></a>
+    </p>
+
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+            Home
+    {% endblock title %}
+
+    {% block content %}
+
+    <h1 class="text-center mb-4">Recent Blog Posts</h1>
+    {% for blog in blogs %}
+
+
+    <div class="blog-post">
+        <div class="blog-meta">
+            <div class="blog-title">{{ blog.title }}</div>
+            <div class="blog-info">
+                <div class="name">
+                    <a href="{{ url_for('views.author', username=blog.user.username) }}">{{ blog.user.username }}</a>
+                </div>
+                <div class="category"><a href="{{ url_for('views.category_posts', category_name=blog.category) }}">{{ blog.category }}</a></div>
+                <div class="time">
+                    posted on {{ blog.date.strftime('%Y-%m-%d') }} at {{ blog.date.strftime('%H:%M') }}
+                </div>
+            </div>
+        </div>
+        <div class="blog-content">
+            {{ blog.content[:200] }} ........  
+            <a href="{{ url_for('views.blog_post', post_id=blog.id) }}">Read More</a>
+        </div>
+    </div>
+  
+
+
+    {% endfor %}
+
+
+    {% endblock content %}
